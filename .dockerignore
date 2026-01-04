@@ -1,0 +1,19 @@
+# Dependencias (Docker las instalará con npm install dentro)
+node_modules
+
+# Logs
+npm-debug.log
+
+# Secretos y configuración local
+.env
+.env.local
+
+# Control de versiones
+.git
+.gitignore
+
+# Tests (opcional, pero recomendado para producción)
+tests/
+
+# Documentación
+README.md
