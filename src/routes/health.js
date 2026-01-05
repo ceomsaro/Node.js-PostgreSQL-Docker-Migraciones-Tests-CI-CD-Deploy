@@ -6,7 +6,7 @@ router.get("/", async (req, res) => {
   try {
     await pool.query("SELECT 1");
     res.json({ api: "ok", database: "ok" });
-  } catch {
+  } catch(error) {
     console.error("Error en el Healthcheck:", error.message);
     res.status(500).json({ api: "ok", database: "error" });
   }
