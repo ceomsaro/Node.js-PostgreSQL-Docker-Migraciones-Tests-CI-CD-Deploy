@@ -17,3 +17,5 @@ tests/
 
 # Documentación
 README.md
+
+coverage/
