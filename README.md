@@ -1,8 +1,13 @@
 # 🚀 Node DevOps Platform
+[![CI](https://github.com/ceomsaro/Node.js-PostgreSQL-Docker-Migraciones-Tests-CI-CD-Deploy/actions/workflows/ci.yml/badge.svg)](https://github.com/ceomsaro/Node.js-PostgreSQL-Docker-Migraciones-Tests-CI-CD-Deploy/actions/workflows/ci.yml)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=flat&logo=node.js&logoColor=white)
+
 
 Una API profesional de gestión de tareas diseñada bajo principios **DevOps**: automatización, seguridad y observabilidad.
 
 ## 🏗️ Arquitectura del Sistema
+
 ```mermaid
 graph TD
     User -->|HTTP| API[Node.js Express API]
@@ -11,49 +16,57 @@ graph TD
     DB_Check -->|Si| Migrations[Run SQL Migrations]
     Migrations -->|Success| Server[App Started]
     Server -->|Persistencia| DB[(PostgreSQL)]
-🛠️ Stack Tecnológico
-Backend: Node.js & Express.
+```
 
-Base de Datos: PostgreSQL.
+## 🛠️ Stack Tecnológico
+- Backend: Node.js & Express.
 
-Infraestructura: Docker & Docker Compose.
+- Base de Datos: PostgreSQL.
 
-CI/CD: GitHub Actions.
+- Infraestructura: Docker & Docker Compose.
 
-Testing: Jest & Supertest.
+- CI/CD: GitHub Actions.
 
-🌟 Características DevOps
+- Testing: Jest & Supertest.
+
+## 🌟 Características DevOps
 Migraciones Automáticas: Script de entrada que espera a la DB y ejecuta esquemas SQL (psql).
 
-Seguridad (Hardening): El contenedor corre bajo un usuario no-root (node).
+- Seguridad (Hardening): El contenedor corre bajo un usuario no-root (node).
 
-Healthchecks: Endpoint /health que valida la conectividad interna con la base de datos.
+- Healthchecks: Endpoint /health que valida la conectividad interna con la base de datos.
 
-Persistencia: Volúmenes Docker gestionados para evitar pérdida de datos.
+- Persistencia: Volúmenes Docker gestionados para evitar pérdida de datos.
 
-CI Pipeline: Ejecución automática de tests en cada push a main.
+- CI Pipeline: Ejecución automática de tests en cada push a main.
 
-🚀 Cómo empezar
-Clonar el repo: git clone ...
+## 🚀 Cómo empezar
 
-Variables de entorno: Copia .env.example a .env y ajusta tus credenciales.
+Clonar el repo:
+```bash
+git clone https://github.com/ceomsaro/Node.js-PostgreSQL-Docker-Migraciones-Tests-CI-CD-Deploy.git
+```
+
+
+Variables de entorno: Copia `.env.example` a `.env` y ajusta tus credenciales.
 
 Levantar el entorno:
-
-Bash
-
+```bash
 docker-compose up --build
-🧪 Testing
+```
+
+## 🧪 Testing
 Para ejecutar la suite de pruebas dentro del entorno orquestado:
-
-Bash
-
+```bash
 docker-compose exec api npm test
-🛡️ Seguridad
+```
+
+
+## 🛡️ Seguridad
 Este proyecto sigue las mejores prácticas de Docker:
 
-Uso de imágenes Alpine (ligeras y con menor superficie de ataque).
+- Uso de imágenes Alpine (ligeras y con menor superficie de ataque).
 
-Principio de Menor Privilegio (No-root user).
+- Principio de Menor Privilegio (No-root user).
 
-Gestión de secretos mediante variables de entorno (no hardcoded).
+- Gestión de secretos mediante variables de entorno (no hardcoded).
